@@ -26,9 +26,16 @@ SECRET_KEY = 'django-insecure-xutda)degg442e5*ulut-h81myg+gu6@-m&p9^tqmm(_vu^nse
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = [
+  "https://*.app.github.dev", 
+  "https://localhost:8000",
+  "http://127.0.0.1:8000"
+]
 
+ALLOWED_HOSTS = [
+  "*",
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -127,4 +134,10 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-API_URL = 'https://jose12345.pythonanywhere.com/'
+API_URL = 'https://anlaye22.pythonanywhere.com/landing/api/index'
+
+# Fallo: acceso sin autenticación
+LOGIN_URL = '/login/'
+
+# Éxito: luego de autenticación exitosa
+LOGIN_REDIRECT_URL = '/'

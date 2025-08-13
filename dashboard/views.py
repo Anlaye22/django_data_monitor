@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
+@login_required
 def index(request):
     #return HttpResponse("Hello, world. You're at the dashboard index.")
     #return render(request, 'dashboard/index.html')
