@@ -134,7 +134,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-API_URL = 'https://anlaye22.pythonanywhere.com/landing/api/index'
+API_URL = 'https://jsonplaceholder.typicode.com/posts'
 
 # Fallo: acceso sin autenticación
 LOGIN_URL = '/login/'
