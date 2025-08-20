@@ -7,9 +7,13 @@ from django.conf import settings
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required, permission_required
 
-# Configura un logger para manejar errores de forma más robusta
-logger = logging.getLogger(__name__)
+@permission_required('dashboard.index_viewer', raise_exception=True)
+@login_required
+def index_view(request):
+    # Configura un logger para manejar errores de forma más robusta
+    logger = logging.getLogger(__name__)
 
 # --- Vistas del Proyecto ---
 
