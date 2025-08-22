@@ -127,14 +127,22 @@
             Posts por Usuario
           </h4>
           <canvas id="line"></canvas>
+          <script id="graph-labels" type="application/json">
+            {{ graph_labels|json_script:"graph-labels" }}
+          </script>
+          <script id="graph-values" type="application/json">
+            {{ graph_values|json_script:"graph-values" }}
+          </script>
           <script>
+            const graphLabels = JSON.parse(document.getElementById('graph-labels').textContent);
+            const graphValues = JSON.parse(document.getElementById('graph-values').textContent);
             const lineChartData = {
-              labels: {{ graph_labels|safe }},
+              labels: graphLabels,
               datasets: [{
                 label: 'Posts',
                 backgroundColor: 'rgba(100, 21, 255, 0.2)',
                 borderColor: 'rgba(100, 21, 255, 1)',
-                data: {{ graph_values|safe }},
+                data: graphValues,
                 fill: true,
               }]
             };
